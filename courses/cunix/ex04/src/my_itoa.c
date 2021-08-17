@@ -3,23 +3,25 @@
  *
  *       Filename:  my_itoa.c
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  14.08.2021 20:03:36
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  Den Kalenichenko (), 
- *   Organization:  
+ *         Author:  Den Kalenichenko (),
+ *   Organization:
  *
  * =====================================================================================
  */
 
 #include <stdlib.h>
 
-void my_reverse(char* src, int len) {
-    for (int i = 0; i < len / 2; i++) {
+void my_reverse(char *src, int len)
+{
+    for (int i = 0; i < len / 2; i++)
+    {
         char temp;
         temp = src[i];
         src[i] = src[len - i - 1];
@@ -27,23 +29,25 @@ void my_reverse(char* src, int len) {
     }
 }
 
-char* my_itoa(int nmb) {
-    char* result = (char*)malloc(32);
-    char* number = result;
+char *my_itoa(int nmb)
+{
+    char *result = (char *)malloc(32);
+    char *number = result;
     int sign;
     if ((sign = nmb) < 0)
         nmb = -nmb;
     int len = 0;
-    do {
+    do
+    {
         *result++ = nmb % 10 + '0';
         len++;
-    } while((nmb /= 10) > 0);
-    if (sign < 0) {
+    } while ((nmb /= 10) > 0);
+    if (sign < 0)
+    {
         len++;
         *result++ = '-';
     }
     *result = '\0';
     my_reverse(number, len);
     return number;
-
 }

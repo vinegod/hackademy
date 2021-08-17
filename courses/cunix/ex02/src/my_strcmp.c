@@ -3,22 +3,23 @@
  *
  *       Filename:  my_strcmp.c
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  14.08.2021 19:05:13
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  YOUR NAME (), 
- *   Organization:  
+ *         Author:  YOUR NAME (),
+ *   Organization:
  *
  * =====================================================================================
  */
 
-
-int my_strcmp(char* str1, char* str2) {
-    while(*str1 == *str2) {
+int my_strcmp(char *str1, char *str2)
+{
+    while (*str1 == *str2)
+    {
         if (*str1 == '\0')
             return 0;
         str1++;
