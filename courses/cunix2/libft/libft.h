@@ -30,7 +30,7 @@ int ft_tolower(int n);
 
 int ft_abs(int x);
 div_t ft_div(int numer, int denom);
-char *ft_strstr(char *haystack, char *needle);
+char *ft_strnstr(char *haystack, char *needle);
 void *ft_memset(void *str, int c, size_t n);
 void *ft_memcpy(void *dest, const char *src, size_t n);
 void *ft_memccpy(void *dest, const void *src, int c, unsigned long int count);

@@ -1,4 +1,4 @@
-char *ft_strstr(char *haystack, char *needle)
+char *ft_strnstr(char *haystack, char *needle)
 {
     if (*needle == '\0')
         return haystack;
