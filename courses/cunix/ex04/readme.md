@@ -10,10 +10,11 @@
 * Read all files in include/ src/ and the Makefile before starting anything
 * Create files src/my_atoi.c src/my_itoa.c
 * Implement atoi in a file called my_atoi using the prototype:
-`int atoi(const char *nptr);`
+`int my_atoi(const char *nptr);`
 * Implement itoa in a file called my_itoa using the prototype:
 `char* my_itoa(int nmb);`
 * Run `make test`
+* use only `write`,`malloc`,`free` function to implement your code
 
 ### Docs
 `man 3 atoi`
