@@ -28,7 +28,7 @@ func NewVigenere(s string) Cipher {
 	if strings.Count(s, string(s[0])) == len(s) {
 		return nil
 	}
-	return Viginere{Key: s}
+	return Vigenere{Key: s}
 }
 
 func PrepapeString(s string) string {
