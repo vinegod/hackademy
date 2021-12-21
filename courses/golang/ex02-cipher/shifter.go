@@ -1,35 +1,46 @@
 package cipher
 
+import "strings"
+
 type Shift struct {
 	step int
 }
 
 func (c Shift) Encode(s string) string {
-	str := []byte(PrepapeString(s))
+	s = PrepapeString(s)
 
-	for i, char := range str {
-		str[i] = char + byte(c.step)
-
-		if str[i] > 'z' {
-			str[i] -= 26
-		} else if str[i] < 'a' {
-			str[i] += 26
+	shift := func(step rune) func(r rune) rune {
+		return func(r rune) rune {
+			switch {
+			case r >= 'a' && r <= 'z':
+				t := 'a' + (r-'a'+step)%26
+				if t < 'a' {
+					t += 26
+				}
+				return t
+			}
+			return r
 		}
 	}
-	return string(str)
+
+	return strings.Map(shift(rune(c.step)), s)
 }
 
 func (c Shift) Decode(s string) string {
 
-	str := []byte(s)
-
-	for i, char := range str {
-		str[i] = char - byte(c.step)
-		if str[i] > 'z' {
-			str[i] -= 26
-		} else if str[i] < 'a' {
-			str[i] += 26
+	shift := func(step rune) func(r rune) rune {
+		return func(r rune) rune {
+			switch {
+			case r >= 'a' && r <= 'z':
+				t := 'a' + (r-'a'-step)%26
+				if t < 'a' {
+					t += 26
+				}
+				return t
+			}
+			return r
 		}
 	}
-	return string(str)
+
+	return strings.Map(shift(rune(c.step)), s)
 }
