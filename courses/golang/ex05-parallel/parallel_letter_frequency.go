@@ -23,8 +23,8 @@ func ConcurrentFrequency(letters []string) map[rune]int {
 	characters := make(map[rune]int)
 
 	for i := 0; i < len(letters); i++ {
-		for n, r := range <-maps {
-			characters[n] += r
+		for r, n := range <-maps {
+			characters[r] += n
 		}
 	}
 
